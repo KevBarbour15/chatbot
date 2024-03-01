@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import codingProblemsData from "../../problems.json";
-import "./coding-problems.css";
+import "./problems.css";
 
-const CodingProblems = () => {
+const Problems = () => {
   const [searchQuery, setSearchQuery] = useState("");
 
   const filteredProblems = codingProblemsData.coding_problems.filter(
@@ -28,7 +28,7 @@ const CodingProblems = () => {
       <div className="problems">
         {filteredProblems.map((problem, index) => (
           <Link
-            to={`/problems/${problem.problem_name}`}
+            to={`/problems/${index}`}
             style={{ textDecoration: "none", color: "inherit" }}
           >
             <div key={index} className="problem-card">
@@ -42,4 +42,4 @@ const CodingProblems = () => {
   );
 };
 
-export default CodingProblems;
+export default Problems;
